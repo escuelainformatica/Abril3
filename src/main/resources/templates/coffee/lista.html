@@ -13,6 +13,9 @@
                 <div class="col">
                     <br>
                     <h1>Lista de Café</h1>
+                    <div class="alert alert-primary" th:if="${mensaje}"  th:text="${mensaje}"></div>
+                    
+                    
                     <a href="/coffee/insertar" class="btn btn-primary">Insertar</a><br/>
                     <br/>
                     <table class="table">
@@ -23,8 +26,13 @@
                             <td th:text="${coffee.price}"></td>
                             <td th:text="${coffee.stock}"></td>
                             <td>
-                                <a class="btn btn-danger btn-sm" 
+                                <a class="btn btn-primary btn-sm" 
                                     th:href="@{'/coffee/editar/'+${coffee.idCoffee}}">Editar</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-danger btn-sm" 
+                                   onclick="return confirm('Esta seguro?');"
+                                    th:href="@{'/coffee/borrar/?idparam='+${coffee.idCoffee}}">Borrar</a>
                             </td>
                         </tr>
                         </tbody>

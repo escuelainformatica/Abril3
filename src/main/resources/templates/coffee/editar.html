@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Insertar Café</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" >
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <br>
+                </div>
+            </div>
+            <!-- el formulario viene de este ejemplo https://getbootstrap.com/docs/4.4/components/forms/#readonly-plain-text -->
+            <div class="card">
+                <div class="card-header">
+                    Editar Café
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="/coffee/editar" th:object="${objeto}">
+                        <input type="hidden" th:field="*{idCoffee}"/>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Nombre</label>
+                            <div class="col-sm-10">
+                                <input type="text"  class="form-control" th:field="*{name}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Precio</label>
+                            <div class="col-sm-10">
+                                <input type="text"  class="form-control" th:field="*{price}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Stock</label>
+                            <div class="col-sm-10">
+                                <input type="text"  class="form-control" th:field="*{stock}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">&nbsp;</label>
+                            <div class="col-sm-10">
+                                <input type="submit"  class="btn btn-success" value="Editar"/>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href="/coffee/lista" class="btn btn-success" >Cancelar y volver</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div> <!-- fin div cards-->
+        </div>
+    </body>
+</html>

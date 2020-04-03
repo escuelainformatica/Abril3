@@ -6,8 +6,10 @@
 package cl.eftec.abril3.mysql;
 
 import cl.eftec.abril3.entidades.Coffee;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
@@ -25,6 +27,13 @@ public class CoffeeMysql2 {
     @Transactional
     public void refresh(Coffee parkrunCourse) {
         em.refresh(parkrunCourse);
+    }
+    
+    public List<Coffee> listar() {
+        Query consulta=em.createQuery("select c from Coffee c");
+        
+        return consulta.getResultList();
+        
     }
 
 }
