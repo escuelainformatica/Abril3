@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Listar Café</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" >
+    </head>
+    <body>
+        <!-- ver https://getbootstrap.com/docs/4.4/getting-started/introduction/ Para uso de bootstrap -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <br>
+                    <h1>Lista de Café</h1>
+                    <a href="/coffee/insertar" class="btn btn-primary">Insertar</a><br/>
+                    <br/>
+                    <table class="table">
+                        <tbody>
+                        <tr th:each="coffee: ${coffees}">
+                            <td th:text="${coffee.idCoffee}"></td>
+                            <td th:text="${coffee.name}"></td>
+                            <td th:text="${coffee.price}"></td>
+                            <td th:text="${coffee.stock}"></td>
+                            <td>
+                                <a class="btn btn-danger btn-sm" 
+                                    th:href="@{'/coffee/editar/'+${coffee.idCoffee}}">Editar</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
