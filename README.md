@@ -30,7 +30,7 @@ La ruta es http://localhost:8080/coffee/listar
 
 (Pero para que funcione, tiene que estar la tabla creada).
 
-´´´sql
+```sql
 
 INSERT INTO `cursojava2020`.`coffee` (`id_coffee`, `name`, `price`, `stock`) VALUES ('1', 'Brew Rite Cleaner for Automatic Drip Coffee and Espresso Machines', '22475', '337');
 
@@ -292,5 +292,4 @@ INSERT INTO `cursojava2020`.`coffee` (`id_coffee`, `name`, `price`, `stock`) VAL
 
 
 
-
-´´´
+```
